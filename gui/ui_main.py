@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from ui_helptext import Ui_HelpText
-
+from ui_aktivitet import Ui_Aktivitet
 
 class Ui_Main(object):
 
@@ -20,9 +20,9 @@ class Ui_Main(object):
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def open_(self):
+    def open_aktivitetwindow(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_HelpText()
+        self.ui = Ui_Aktivitet()
         self.ui.setupUi(self.window)
         self.window.show()
     
@@ -44,6 +44,7 @@ class Ui_Main(object):
         self.activitybutton.setGeometry(QtCore.QRect(30, 520, 141, 61))
         self.activitybutton.setStyleSheet("background-color: rgb(0, 170, 255);")
         self.activitybutton.setObjectName("activitybutton")
+        self.activitybutton.clicked.connect(self.open_aktivitetwindow)
         self.infobutton = QtWidgets.QPushButton(self.widget)
         self.infobutton.setGeometry(QtCore.QRect(30, 590, 141, 61))
         self.infobutton.setStyleSheet("background-color: rgb(0, 170, 255);")
@@ -53,7 +54,7 @@ class Ui_Main(object):
         self.label.setGeometry(QtCore.QRect(220, 30, 521, 91))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(75)
@@ -67,7 +68,7 @@ class Ui_Main(object):
         self.label_2.setGeometry(QtCore.QRect(220, 140, 451, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         font.setBold(True)
         font.setItalic(True)
         font.setWeight(75)
@@ -209,7 +210,7 @@ class Ui_Main(object):
         self.label_8.setGeometry(QtCore.QRect(970, 470, 41, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_8.setFont(font)
         self.label_8.setStyleSheet("font-size: 12px;\n"
 "color: rgb(255, 222, 222);\n"
@@ -367,7 +368,7 @@ class Ui_Main(object):
         self.label_11.setGeometry(QtCore.QRect(970, 520, 41, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_11.setFont(font)
         self.label_11.setStyleSheet("font-size: 12px;\n"
 "color: rgb(255, 222, 222);\n"
