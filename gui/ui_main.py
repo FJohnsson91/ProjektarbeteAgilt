@@ -9,9 +9,23 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from ui_helptext import Ui_HelpText
 
 
 class Ui_Main(object):
+
+    def open_helpwindow(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HelpText()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def open_(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_HelpText()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    
     def setupUi(self, Main):
         Main.setObjectName("Main")
         Main.resize(1086, 735)
@@ -34,6 +48,7 @@ class Ui_Main(object):
         self.infobutton.setGeometry(QtCore.QRect(30, 590, 141, 61))
         self.infobutton.setStyleSheet("background-color: rgb(0, 170, 255);")
         self.infobutton.setObjectName("infobutton")
+        self.infobutton.clicked.connect(self.open_helpwindow)
         self.label = QtWidgets.QLabel(Main)
         self.label.setGeometry(QtCore.QRect(220, 30, 521, 91))
         font = QtGui.QFont()
