@@ -181,10 +181,8 @@ class Ui_Aktivitet(object):
                          QtGui.QPalette.PlaceholderText, brush)
         self.tableWidget.setPalette(palette)
         self.tableWidget.setAutoFillBackground(True)
-        self.tableWidget.setStyleSheet("QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}\n"
-                                       "")
-        self.tableWidget.setStyleSheet(
-            "QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}")
+        self.tableWidget.setStyleSheet("QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}")
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(197)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
         self.tableWidget.setRowCount(0)
