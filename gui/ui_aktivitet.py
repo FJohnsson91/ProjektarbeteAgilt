@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 import mysql.connector
+from file_handling import file_handling
 
 
 class Ui_Aktivitet(object):
@@ -358,6 +359,9 @@ class Ui_Aktivitet(object):
         self.label_4.setText(_translate(
             "Aktivitet", "Välj vilken kategori av aktiviteter nedan"))
 
+        app.setStyleSheet(
+            'QWidget { background-color: #aa8888; } QHeaderView::section { background-color: #88aa88; } QTableWidget QTableCornerButton::section {background-color: rgb(37, 37, 37); }')
+
     def displayPhysicalActivities(self):
         mydb = mysql.connector.connect(
             host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
@@ -413,12 +417,11 @@ class Ui_Aktivitet(object):
             myResult = mycursor.fetchall()
 
             # Finds the corresponding activty for choiceNumber and adds it to the list
-            counter = 0
             for entry in myResult:
-                if int(entry[counter]) == int(choiceNumber):
+                if int(entry[0]) == int(choiceNumber):
                     self.textEdit.append(
                         entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
-            counter += 1
+
         if self.mental is True:
             # mentala table
             mydb = mysql.connector.connect(
@@ -430,14 +433,14 @@ class Ui_Aktivitet(object):
             myResult = mycursor.fetchall()
 
             # Finds the corresponding activty for choiceNumber and adds it to the list
-            counter = 0
             for entry in myResult:
-                if int(entry[counter]) == int(choiceNumber):
+                if int(entry[0]) == int(choiceNumber):
                     self.textEdit.append(
                         entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
-            counter += 1
 
         # ADD FUNCTIONALITY TO SAVE TO FILE
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
