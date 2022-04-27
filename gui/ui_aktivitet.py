@@ -14,6 +14,7 @@ import mysql.connector
 
 
 class Ui_Aktivitet(object):
+
     def setupUi(self, Aktivitet):
         Aktivitet.setObjectName("Aktivitet")
         Aktivitet.resize(1109, 730)
@@ -33,6 +34,7 @@ class Ui_Aktivitet(object):
         # valda aktiviteter
         self.textEdit = QtWidgets.QTextEdit(self.widget)
         self.textEdit.setGeometry(QtCore.QRect(50, 20, 121, 141))
+        self.textEdit.setTextColor(QtGui.QColor(0, 170, 255))
         self.textEdit.setObjectName("textEdit")
         self.SparaAktivitet = QtWidgets.QPushButton(self.widget)
         self.SparaAktivitet.setGeometry(QtCore.QRect(50, 230, 111, 41))
@@ -40,7 +42,7 @@ class Ui_Aktivitet(object):
             "background-color: rgb(0, 170, 255);")
         self.SparaAktivitet.setObjectName("SparaAktivitet")
         self.label_3 = QtWidgets.QLabel(self.widget)
-        self.label_3.setGeometry(QtCore.QRect(50, 180, 111, 31))
+        self.label_3.setGeometry(QtCore.QRect(50, 180, 141, 31))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -128,37 +130,61 @@ class Ui_Aktivitet(object):
         self.tableWidget = QtWidgets.QTableWidget(Aktivitet)
         self.tableWidget.setGeometry(QtCore.QRect(210, 200, 821, 421))
         palette = QtGui.QPalette()
+        palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 255, 128))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 170, 255, 128))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.PlaceholderText, brush)
         self.tableWidget.setPalette(palette)
         self.tableWidget.setAutoFillBackground(True)
         self.tableWidget.setStyleSheet("QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}\n"
                                        "")
+        self.tableWidget.setStyleSheet(
+            "QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
         self.tableWidget.setRowCount(0)
@@ -315,6 +341,7 @@ class Ui_Aktivitet(object):
         self.TillbakaAktivitet.setText(_translate("Aktivitet", "Tillbaka"))
         self.SparaAktivitet.setText(_translate("Aktivitet", "Spara"))
         self.label_3.setText(_translate("Aktivitet", "Valda aktiviteter"))
+        self.label_3.setText(_translate("Aktivitet", "Avklarade aktiviteter"))
         self.label.setText(_translate(
             "Aktivitet", "Olika aktiviteter att välja bland"))
         item = self.tableWidget.horizontalHeaderItem(0)
@@ -349,6 +376,8 @@ class Ui_Aktivitet(object):
             self.tableWidget.setItem(
                 rowCount, 2, QtWidgets.QTableWidgetItem(str(x[3])))
             rowCount += 1
+        self.physical = True
+        self.mental = False
 
     def displayMentalActivities(self):
         mydb = mysql.connector.connect(
@@ -368,26 +397,45 @@ class Ui_Aktivitet(object):
             self.tableWidget.setItem(
                 rowCount, 2, QtWidgets.QTableWidgetItem(str(x[3])))
             rowCount += 1
+        self.mental = True
+        self.physical = False
 
     def addChoice(self):
         choiceNumber = self.lineEdit.text()
-        # fysiska table
-        mydb = mysql.connector.connect(
-            host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
-        )
-        mycursor = mydb.cursor()
-        sql = "SELECT * FROM fysiska"
-        mycursor.execute(sql)
-        myResult = mycursor.fetchall()
+        if self.physical is True:
+            # fysiska table
+            mydb = mysql.connector.connect(
+                host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+            )
+            mycursor = mydb.cursor()
+            sql = "SELECT * FROM fysiska"
+            mycursor.execute(sql)
+            myResult = mycursor.fetchall()
 
-        # Finds the corresponding activty for choiceNumber and adds it to the list
-        counter = 0
-        for entry in myResult:
-            if int(entry[counter]) == int(choiceNumber):
-                self.textEdit.append(
-                    entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]))
-        counter += 1
+            # Finds the corresponding activty for choiceNumber and adds it to the list
+            counter = 0
+            for entry in myResult:
+                if int(entry[counter]) == int(choiceNumber):
+                    self.textEdit.append(
+                        entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
+            counter += 1
+        if self.mental is True:
+            # mentala table
+            mydb = mysql.connector.connect(
+                host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+            )
+            mycursor = mydb.cursor()
+            sql = "SELECT * FROM mentala"
+            mycursor.execute(sql)
+            myResult = mycursor.fetchall()
 
+            # Finds the corresponding activty for choiceNumber and adds it to the list
+            counter = 0
+            for entry in myResult:
+                if int(entry[counter]) == int(choiceNumber):
+                    self.textEdit.append(
+                        entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
+            counter += 1
 
         # ADD FUNCTIONALITY TO SAVE TO FILE
 if __name__ == "__main__":
