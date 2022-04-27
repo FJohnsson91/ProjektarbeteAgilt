@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
+import mysql.connector
 
 
 class Ui_Aktivitet(object):
@@ -16,29 +18,32 @@ class Ui_Aktivitet(object):
         Aktivitet.setObjectName("Aktivitet")
         Aktivitet.resize(1109, 730)
         Aktivitet.setStyleSheet("background-color: rgb(37, 37, 37);\n"
-"background-color: rgb(37,37,37);")
+                                "background-color: rgb(37,37,37);")
         self.widget = QtWidgets.QWidget(Aktivitet)
         self.widget.setGeometry(QtCore.QRect(0, 0, 201, 721))
         self.widget.setStyleSheet("\n"
-"background-color: rgb(37,37,37);")
+                                  "background-color: rgb(37,37,37);")
         self.widget.setObjectName("widget")
         self.TillbakaAktivitet = QtWidgets.QPushButton(self.widget)
         self.TillbakaAktivitet.setGeometry(QtCore.QRect(30, 650, 141, 61))
-        self.TillbakaAktivitet.setStyleSheet("background-color: rgb(0, 170, 255);")
+        self.TillbakaAktivitet.setStyleSheet(
+            "background-color: rgb(0, 170, 255);")
         self.TillbakaAktivitet.setObjectName("TillbakaAktivitet")
         self.textEdit = QtWidgets.QTextEdit(self.widget)
         self.textEdit.setGeometry(QtCore.QRect(50, 20, 121, 141))
         self.textEdit.setObjectName("textEdit")
         self.SparaAktivitet = QtWidgets.QPushButton(self.widget)
         self.SparaAktivitet.setGeometry(QtCore.QRect(50, 230, 111, 41))
-        self.SparaAktivitet.setStyleSheet("background-color: rgb(0, 170, 255);")
+        self.SparaAktivitet.setStyleSheet(
+            "background-color: rgb(0, 170, 255);")
         self.SparaAktivitet.setObjectName("SparaAktivitet")
         self.label_3 = QtWidgets.QLabel(self.widget)
         self.label_3.setGeometry(QtCore.QRect(50, 180, 111, 31))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -47,7 +52,8 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
@@ -56,10 +62,12 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -68,7 +76,8 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
@@ -77,10 +86,12 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -89,7 +100,8 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
@@ -98,17 +110,18 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.PlaceholderText, brush)
         self.label_3.setPalette(palette)
         self.label_3.setStyleSheet("font: 12pt \"Segoe UI\";\n"
-"color: rgb(0, 170, 255)")
+                                   "color: rgb(0, 170, 255)")
         self.label_3.setObjectName("label_3")
         self.label = QtWidgets.QLabel(Aktivitet)
         self.label.setGeometry(QtCore.QRect(350, 10, 481, 61))
         self.label.setStyleSheet("font-size: 30px;\n"
-"font: bold;\n"
-"color: rgb(255, 222, 222);\n"
-"color: rgb(0, 170, 255);")
+                                 "font: bold;\n"
+                                 "color: rgb(255, 222, 222);\n"
+                                 "color: rgb(0, 170, 255);")
         self.label.setObjectName("label")
         self.tableWidget = QtWidgets.QTableWidget(Aktivitet)
         self.tableWidget.setGeometry(QtCore.QRect(210, 200, 821, 421))
@@ -143,7 +156,7 @@ class Ui_Aktivitet(object):
         self.tableWidget.setPalette(palette)
         self.tableWidget.setAutoFillBackground(True)
         self.tableWidget.setStyleSheet("QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}\n"
-"")
+                                       "")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
         self.tableWidget.setRowCount(0)
@@ -172,8 +185,8 @@ class Ui_Aktivitet(object):
         font.setPointSize(0)
         self.label_2.setFont(font)
         self.label_2.setStyleSheet("font-size: 15px;\n"
-"color: rgb(255, 222, 222);\n"
-"color: rgb(0, 170, 255);")
+                                   "color: rgb(255, 222, 222);\n"
+                                   "color: rgb(0, 170, 255);")
         self.label_2.setObjectName("label_2")
         self.layoutWidget = QtWidgets.QWidget(Aktivitet)
         self.layoutWidget.setGeometry(QtCore.QRect(212, 630, 191, 31))
@@ -189,7 +202,8 @@ class Ui_Aktivitet(object):
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -204,10 +218,12 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255, 128))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Active,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -222,10 +238,12 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255, 128))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Inactive,
+                         QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -240,7 +258,8 @@ class Ui_Aktivitet(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
+        palette.setBrush(QtGui.QPalette.Disabled,
+                         QtGui.QPalette.PlaceholderText, brush)
         self.lineEdit.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -251,17 +270,20 @@ class Ui_Aktivitet(object):
         self.lineEdit.setFont(font)
         self.lineEdit.setAutoFillBackground(False)
         self.lineEdit.setStyleSheet("font: 9pt \"Segoe UI\";\n"
-"background-color: rgb(37, 37, 37);")
+                                    "background-color: rgb(37, 37, 37);")
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout.addWidget(self.lineEdit)
         self.visafysik = QtWidgets.QPushButton(Aktivitet)
         self.visafysik.setGeometry(QtCore.QRect(330, 150, 111, 41))
         self.visafysik.setStyleSheet("background-color: rgb(0, 170, 255);")
         self.visafysik.setObjectName("visafysik")
+        self.visafysik.clicked.connect(
+            lambda: self.displayPhysicalActivities())
         self.visamental = QtWidgets.QPushButton(Aktivitet)
         self.visamental.setGeometry(QtCore.QRect(690, 150, 111, 41))
         self.visamental.setStyleSheet("background-color: rgb(0, 170, 255);")
         self.visamental.setObjectName("visamental")
+        self.visamental.clicked.connect(lambda: self.displayMentalActivities())
         self.label_4 = QtWidgets.QLabel(Aktivitet)
         self.label_4.setGeometry(QtCore.QRect(440, 100, 271, 31))
         font = QtGui.QFont()
@@ -269,8 +291,8 @@ class Ui_Aktivitet(object):
         font.setPointSize(0)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("font-size: 15px;\n"
-"color: rgb(255, 222, 222);\n"
-"color: rgb(0, 170, 255);")
+                                   "color: rgb(255, 222, 222);\n"
+                                   "color: rgb(0, 170, 255);")
         self.label_4.setObjectName("label_4")
 
         self.retranslateUi(Aktivitet)
@@ -282,18 +304,59 @@ class Ui_Aktivitet(object):
         self.TillbakaAktivitet.setText(_translate("Aktivitet", "Tillbaka"))
         self.SparaAktivitet.setText(_translate("Aktivitet", "Spara"))
         self.label_3.setText(_translate("Aktivitet", "Valda aktiviteter"))
-        self.label.setText(_translate("Aktivitet", "Olika aktiviteter att välja bland"))
+        self.label.setText(_translate(
+            "Aktivitet", "Olika aktiviteter att välja bland"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("Aktivitet", "Nummer"))
+        item.setText(_translate("Aktivitet", "Aktivitet"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("Aktivitet", "Längd"))
         item = self.tableWidget.horizontalHeaderItem(2)
         item.setText(_translate("Aktivitet", "Poäng"))
-        self.label_2.setText(_translate("Aktivitet", "Välj vilka aktiviteter du vill göra genom att skriva in det nummer som står framför vald aktivitet"))
+        self.label_2.setText(_translate(
+            "Aktivitet", "Välj vilka aktiviteter du vill göra genom att skriva in det nummer som står framför vald aktivitet"))
         self.SaveAktivitet.setText(_translate("Aktivitet", "Lägg till"))
         self.visafysik.setText(_translate("Aktivitet", "Fysiska aktiviteter"))
         self.visamental.setText(_translate("Aktivitet", "Mentala aktiviteter"))
-        self.label_4.setText(_translate("Aktivitet", "Välj vilken kategori av aktiviteter nedan"))
+        self.label_4.setText(_translate(
+            "Aktivitet", "Välj vilken kategori av aktiviteter nedan"))
+
+    def displayPhysicalActivities(self):
+        mydb = mysql.connector.connect(
+            host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+        )
+        mycursor = mydb.cursor()
+        sql = "SELECT * FROM fysiska"
+        mycursor.execute(sql)
+        myResult = mycursor.fetchall()
+        self.tableWidget.setRowCount(len(myResult))
+        rowCount = 0
+        for x in myResult:
+            self.tableWidget.setItem(
+                rowCount, 0, QtWidgets.QTableWidgetItem(x[1]))
+            self.tableWidget.setItem(
+                rowCount, 1, QtWidgets.QTableWidgetItem(str(x[2])))
+            self.tableWidget.setItem(
+                rowCount, 2, QtWidgets.QTableWidgetItem(str(x[3])))
+            rowCount += 1
+
+    def displayMentalActivities(self):
+        mydb = mysql.connector.connect(
+            host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+        )
+        mycursor = mydb.cursor()
+        sql = "SELECT * FROM mentala"
+        mycursor.execute(sql)
+        myResult = mycursor.fetchall()
+        self.tableWidget.setRowCount(len(myResult))
+        rowCount = 0
+        for x in myResult:
+            self.tableWidget.setItem(
+                rowCount, 0, QtWidgets.QTableWidgetItem(x[1]))
+            self.tableWidget.setItem(
+                rowCount, 1, QtWidgets.QTableWidgetItem(str(x[2])))
+            self.tableWidget.setItem(
+                rowCount, 2, QtWidgets.QTableWidgetItem(str(x[3])))
+            rowCount += 1
 
 
 if __name__ == "__main__":
