@@ -182,7 +182,8 @@ class Ui_Aktivitet(object):
                          QtGui.QPalette.PlaceholderText, brush)
         self.tableWidget.setPalette(palette)
         self.tableWidget.setAutoFillBackground(True)
-        self.tableWidget.setStyleSheet("QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}")
+        self.tableWidget.setStyleSheet(
+            "QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}")
         self.tableWidget.horizontalHeader().setDefaultSectionSize(197)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
@@ -357,9 +358,6 @@ class Ui_Aktivitet(object):
         self.label_4.setText(_translate(
             "Aktivitet", "Välj vilken kategori av aktiviteter nedan"))
 
-        app.setStyleSheet(
-            'QWidget { background-color: #aa8888; } QHeaderView::section { background-color: #88aa88; } QTableWidget QTableCornerButton::section {background-color: rgb(37, 37, 37); }')
-
     def displayPhysicalActivities(self):
         mydb = mysql.connector.connect(
             host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
@@ -442,6 +440,8 @@ class Ui_Aktivitet(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyleSheet(
+        'QWidget { background-color: #aa8888; } QHeaderView::section { background-color: #88aa88; } QTableWidget QTableCornerButton::section {background-color: rgb(37, 37, 37); }')
     Aktivitet = QtWidgets.QDialog()
     ui = Ui_Aktivitet()
     ui.setupUi(Aktivitet)
