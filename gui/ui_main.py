@@ -54,7 +54,7 @@ class Ui_Main(object):
         self.label.setGeometry(QtCore.QRect(220, 30, 521, 91))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(75)
@@ -68,7 +68,7 @@ class Ui_Main(object):
         self.label_2.setGeometry(QtCore.QRect(220, 140, 451, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         font.setBold(True)
         font.setItalic(True)
         font.setWeight(75)
@@ -200,7 +200,7 @@ class Ui_Main(object):
         self.label_7.setGeometry(QtCore.QRect(680, 470, 201, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_7.setFont(font)
         self.label_7.setStyleSheet("font-size: 12px;\n"
 "color: rgb(255, 222, 222);\n"
@@ -210,7 +210,7 @@ class Ui_Main(object):
         self.label_8.setGeometry(QtCore.QRect(970, 470, 41, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         self.label_8.setFont(font)
         self.label_8.setStyleSheet("font-size: 12px;\n"
 "color: rgb(255, 222, 222);\n"
@@ -358,7 +358,7 @@ class Ui_Main(object):
         self.label_10.setGeometry(QtCore.QRect(840, 520, 41, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_10.setFont(font)
         self.label_10.setStyleSheet("font-size: 12px;\n"
 "color: rgb(255, 222, 222);\n"
@@ -368,7 +368,7 @@ class Ui_Main(object):
         self.label_11.setGeometry(QtCore.QRect(970, 520, 41, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         self.label_11.setFont(font)
         self.label_11.setStyleSheet("font-size: 12px;\n"
 "color: rgb(255, 222, 222);\n"

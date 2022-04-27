@@ -208,7 +208,7 @@ class Ui_Aktivitet(object):
         self.label_2.setGeometry(QtCore.QRect(210, 660, 641, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         self.label_2.setFont(font)
         self.label_2.setStyleSheet("font-size: 15px;\n"
                                    "color: rgb(255, 222, 222);\n"
@@ -323,7 +323,7 @@ class Ui_Aktivitet(object):
         self.label_4.setGeometry(QtCore.QRect(440, 100, 271, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("font-size: 15px;\n"
                                    "color: rgb(255, 222, 222);\n"
