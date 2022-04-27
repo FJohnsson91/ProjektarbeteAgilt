@@ -182,10 +182,8 @@ class Ui_Aktivitet(object):
                          QtGui.QPalette.PlaceholderText, brush)
         self.tableWidget.setPalette(palette)
         self.tableWidget.setAutoFillBackground(True)
-        self.tableWidget.setStyleSheet("QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}\n"
-                                       "")
-        self.tableWidget.setStyleSheet(
-            "QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}")
+        self.tableWidget.setStyleSheet("QHeaderView::section { color:rgb(0, 170, 255); background-color:rgb(37, 37, 37)}")
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(197)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
         self.tableWidget.setRowCount(0)
@@ -211,7 +209,7 @@ class Ui_Aktivitet(object):
         self.label_2.setGeometry(QtCore.QRect(210, 660, 641, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         self.label_2.setFont(font)
         self.label_2.setStyleSheet("font-size: 15px;\n"
                                    "color: rgb(255, 222, 222);\n"
@@ -326,7 +324,7 @@ class Ui_Aktivitet(object):
         self.label_4.setGeometry(QtCore.QRect(440, 100, 271, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(0)
+        font.setPointSize(1)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("font-size: 15px;\n"
                                    "color: rgb(255, 222, 222);\n"
