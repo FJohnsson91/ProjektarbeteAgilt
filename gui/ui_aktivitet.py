@@ -225,6 +225,8 @@ class Ui_Aktivitet(object):
         self.SaveAktivitet = QtWidgets.QPushButton(self.layoutWidget)
         self.SaveAktivitet.setStyleSheet("background-color: rgb(0, 170, 255);")
         self.SaveAktivitet.setObjectName("SaveAktivitet")
+        qApp.setStyleSheet(
+            'QWidget { background-color: #aa8888; } QHeaderView::section { background-color: #88aa88; } QTableWidget QTableCornerButton::section {background-color: rgb(37, 37, 37); }')
 
         # On lägg till button press
         self.SaveAktivitet.clicked.connect(
@@ -440,8 +442,6 @@ class Ui_Aktivitet(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(
-        'QWidget { background-color: #aa8888; } QHeaderView::section { background-color: #88aa88; } QTableWidget QTableCornerButton::section {background-color: rgb(37, 37, 37); }')
     Aktivitet = QtWidgets.QDialog()
     ui = Ui_Aktivitet()
     ui.setupUi(Aktivitet)
