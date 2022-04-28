@@ -50,7 +50,7 @@ class Ui_popup(object):
 
     def retranslateUi(self, popup):
         _translate = QtCore.QCoreApplication.translate
-        popup.setWindowTitle(_translate("popup", "Dialog"))
+        popup.setWindowTitle(_translate("popup", "Health-Goal"))
         self.infobutton.setText(_translate("popup", "OK"))
         self.label_3.setText(_translate("popup", "Du har X poäng med X dagar kvar"))
 
