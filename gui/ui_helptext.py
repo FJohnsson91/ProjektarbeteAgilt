@@ -12,6 +12,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_HelpText(object):
+    
+    def open_mainwindow(self):
+        from ui_main import Ui_Main
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Main()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    
     def setupUi(self, HelpText):
         HelpText.setObjectName("HelpText")
         HelpText.resize(1079, 816)
@@ -35,6 +43,7 @@ class Ui_HelpText(object):
         self.BackFromHelp.setStyleSheet("background-color:rgb(0, 129, 193)")
         self.BackFromHelp.setCheckable(False)
         self.BackFromHelp.setObjectName("BackFromHelp")
+        self.BackFromHelp.clicked.connect(self.open_mainwindow)
         self.textBrowser = QtWidgets.QTextBrowser(self.frame)
         self.textBrowser.setGeometry(QtCore.QRect(0, 10, 1061, 651))
         self.textBrowser.setObjectName("textBrowser")
@@ -49,7 +58,7 @@ class Ui_HelpText(object):
 
     def retranslateUi(self, HelpText):
         _translate = QtCore.QCoreApplication.translate
-        HelpText.setWindowTitle(_translate("HelpText", "MainWindow"))
+        HelpText.setWindowTitle(_translate("HelpText", "Health-Goal"))
         self.BackFromHelp.setText(_translate("HelpText", "Tillbaka"))
         self.textBrowser.setHtml(_translate("HelpText", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

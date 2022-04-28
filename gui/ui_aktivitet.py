@@ -339,7 +339,7 @@ class Ui_Aktivitet(object):
 
     def retranslateUi(self, Aktivitet):
         _translate = QtCore.QCoreApplication.translate
-        Aktivitet.setWindowTitle(_translate("Aktivitet", "Dialog"))
+        Aktivitet.setWindowTitle(_translate("Aktivitet", "Health-Goal"))
         self.TillbakaAktivitet.setText(_translate("Aktivitet", "Tillbaka"))
         self.SparaAktivitet.setText(_translate("Aktivitet", "Spara"))
         self.label_3.setText(_translate("Aktivitet", "Valda aktiviteter"))

@@ -453,7 +453,7 @@ class Ui_Main(object):
 
     def retranslateUi(self, Main):
         _translate = QtCore.QCoreApplication.translate
-        Main.setWindowTitle(_translate("Main", "Dialog"))
+        Main.setWindowTitle(_translate("Main", "Health-Goal"))
         self.remainingpointsbutton.setText(_translate("Main", "Vad har jag kvar?"))
         self.activitybutton.setText(_translate("Main", "Aktiviteter"))
         self.infobutton.setText(_translate("Main", "Information"))
