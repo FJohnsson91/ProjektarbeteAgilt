@@ -9,10 +9,18 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
 from ui_helptext import Ui_HelpText
 from ui_aktivitet import Ui_Aktivitet
 
 class Ui_Main(object):
+        
+    def show_remainingpoints(self):
+        remaining_points = QMessageBox()
+        remaining_points.setWindowTitle("Health-Goal")
+        remaining_points.setText("Du har XXX poäng kvar")
+        
+        x = remaining_points.exec_()
 
     def open_helpwindow(self):
         self.window = QtWidgets.QMainWindow()
@@ -40,6 +48,7 @@ class Ui_Main(object):
         self.remainingpointsbutton.setGeometry(QtCore.QRect(30, 660, 141, 61))
         self.remainingpointsbutton.setStyleSheet("background-color: rgb(0, 170, 255);")
         self.remainingpointsbutton.setObjectName("remainingpointsbutton")
+        self.remainingpointsbutton.clicked.connect(self.show_remainingpoints)
         self.activitybutton = QtWidgets.QPushButton(self.widget)
         self.activitybutton.setGeometry(QtCore.QRect(30, 520, 141, 61))
         self.activitybutton.setStyleSheet("background-color: rgb(0, 170, 255);")
