@@ -13,13 +13,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_HelpText(object):
     
-    def open_mainwindow(self):
-        from ui_main import Ui_Main
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_Main()
-        self.ui.setupUi(self.window)
-        self.window.show()
-    
     def setupUi(self, HelpText):
         HelpText.setObjectName("HelpText")
         HelpText.resize(1079, 816)
@@ -35,6 +28,7 @@ class Ui_HelpText(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame.setObjectName("frame")
         self.BackFromHelp = QtWidgets.QPushButton(self.frame)
+        self.BackFromHelp.clicked.connect(lambda: self.toggle_window(HelpText))
         self.BackFromHelp.setGeometry(QtCore.QRect(20, 710, 111, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -43,7 +37,6 @@ class Ui_HelpText(object):
         self.BackFromHelp.setStyleSheet("background-color:rgb(0, 129, 193)")
         self.BackFromHelp.setCheckable(False)
         self.BackFromHelp.setObjectName("BackFromHelp")
-        self.BackFromHelp.clicked.connect(self.open_mainwindow)
         self.textBrowser = QtWidgets.QTextBrowser(self.frame)
         self.textBrowser.setGeometry(QtCore.QRect(0, 10, 1061, 651))
         self.textBrowser.setObjectName("textBrowser")
@@ -66,12 +59,9 @@ class Ui_HelpText(object):
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#00aaff;\">https://www.youtube.com/watch?v=sxOlWtJUBD4</span></p></body></html>"))
 
+    def toggle_window(self, window):
+        if window.isVisible():
+            window.hide()
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    HelpText = QtWidgets.QMainWindow()
-    ui = Ui_HelpText()
-    ui.setupUi(HelpText)
-    HelpText.show()
-    sys.exit(app.exec_())
+        else:
+            window.show()

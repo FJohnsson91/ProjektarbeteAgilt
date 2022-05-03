@@ -27,6 +27,7 @@ class Ui_Aktivitet(object):
                                   "background-color: rgb(37,37,37);")
         self.widget.setObjectName("widget")
         self.TillbakaAktivitet = QtWidgets.QPushButton(self.widget)
+        self.TillbakaAktivitet.clicked.connect(lambda: self.toggle_window(Aktivitet))
         self.TillbakaAktivitet.setGeometry(QtCore.QRect(30, 650, 141, 61))
         self.TillbakaAktivitet.setStyleSheet(
             "background-color: rgb(0, 170, 255);")
@@ -359,6 +360,13 @@ class Ui_Aktivitet(object):
         self.visamental.setText(_translate("Aktivitet", "Mentala aktiviteter"))
         self.label_4.setText(_translate(
             "Aktivitet", "Välj vilken kategori av aktiviteter nedan"))
+    
+    def toggle_window(self, window):
+        if window.isVisible():
+            window.hide()
+
+        else:
+            window.show()
 
     def displayPhysicalActivities(self):
         mydb = mysql.connector.connect(
@@ -438,12 +446,3 @@ class Ui_Aktivitet(object):
 
         # ADD FUNCTIONALITY TO SAVE TO FILE
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Aktivitet = QtWidgets.QDialog()
-    ui = Ui_Aktivitet()
-    ui.setupUi(Aktivitet)
-    Aktivitet.show()
-    sys.exit(app.exec_())

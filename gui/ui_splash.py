@@ -91,14 +91,3 @@ class Ui_SplashScreen(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Health-Goal</p></body></html>"))
         self.label_description.setText(_translate("SplashScreen", "<html><head/><body><p>Your personal success</p></body></html>"))
         self.label_loading.setText(_translate("SplashScreen", "loading..."))
-        
-        
-
-
-if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    SplashScreen = QtWidgets.QMainWindow()
-    ui = Ui_SplashScreen()
-    ui.setupUi(SplashScreen)
-    SplashScreen.show()
-    sys.exit(app.exec_())

@@ -20,7 +20,7 @@ class Ui_Main(object):
         remaining_points.setWindowTitle("Health-Goal")
         remaining_points.setText("Du har XXX poäng kvar")
         
-        x = remaining_points.exec_()
+        remaining_points.exec_()
 
     def open_helpwindow(self):
         self.window = QtWidgets.QMainWindow()
@@ -33,6 +33,7 @@ class Ui_Main(object):
         self.ui = Ui_Aktivitet()
         self.ui.setupUi(self.window)
         self.window.show()
+        
     
     def setupUi(self, Main):
         Main.setObjectName("Main")
@@ -482,13 +483,3 @@ class Ui_Main(object):
         self.label_10.setText(_translate("Main", "under"))
         self.label_11.setText(_translate("Main", "dagar"))
         self.saveactivity.setText(_translate("Main", "Lägg till"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Main = QtWidgets.QDialog()
-    ui = Ui_Main()
-    ui.setupUi(Main)
-    Main.show()
-    sys.exit(app.exec_())

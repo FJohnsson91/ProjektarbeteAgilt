@@ -53,13 +53,3 @@ class Ui_popup(object):
         popup.setWindowTitle(_translate("popup", "Health-Goal"))
         self.infobutton.setText(_translate("popup", "OK"))
         self.label_3.setText(_translate("popup", "Du har X poäng med X dagar kvar"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    popup = QtWidgets.QDialog()
-    ui = Ui_popup()
-    ui.setupUi(popup)
-    popup.show()
-    sys.exit(app.exec_())
