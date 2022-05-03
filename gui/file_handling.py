@@ -14,8 +14,10 @@ class file_handling:
         f = open("points.txt", "r")
         print(f.read())
 
-    def writePointGoal(self, point):
-        return None
+    def getRemainingPoints(self):
+        f = open("points.txt", "r")
+        return f.readline()
+        f.close()
 
     def isFileEmpty(self):
         fileSize = os.path.getsize("points.txt")

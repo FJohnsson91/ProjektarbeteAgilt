@@ -20,7 +20,9 @@ class Ui_Main(object):
     def show_remainingpoints(self):
         remaining_points = QMessageBox()
         remaining_points.setWindowTitle("Health-Goal")
-        remaining_points.setText("Du har XXX poäng kvar")
+        fh = file_handling()
+        remainingPoints = fh.getRemainingPoints()
+        remaining_points.setText("Du har " + remainingPoints + "poäng kvar")
 
         remaining_points.exec_()
 
@@ -514,6 +516,7 @@ class Ui_Main(object):
         Main.setWindowTitle(_translate("Main", "Health-Goal"))
         self.remainingpointsbutton.setText(
             _translate("Main", "Vad har jag kvar?"))
+
         self.activitybutton.setText(_translate("Main", "Aktiviteter"))
         self.infobutton.setText(_translate("Main", "Information"))
         self.label.setText(_translate(
