@@ -1,3 +1,6 @@
+import os
+
+
 class file_handling:
     def __init__(self):
         return None
@@ -5,13 +8,21 @@ class file_handling:
     def setPointsGoal(self, goal):
         '''Writes the points goal to the file.
            Takes the parameter goal:int'''
-        f = open("point_file", "a")
+        f = open("points.txt", "w")
         f.write(str(goal))
-        f.write("\n")
         f.close()
+        f = open("points.txt", "r")
+        print(f.read())
 
     def writePointGoal(self, point):
         return None
+
+    def isFileEmpty(self):
+        fileSize = os.path.getsize("points.txt")
+        if fileSize == 0:
+            return True
+        else:
+            return False
 
 
 if __name__ == '__main__':
