@@ -51,7 +51,7 @@ class Ui_Main(object):
             fh.setDate(5)
             msg = QMessageBox()
             msg.setWindowTitle("Mål valt")
-            msg.setText("Du har valt Svårt mål\n15p under 5 dagar")
+            msg.setText("Du har valt Medel-svårt mål\n15p under 5 dagar")
             x = msg.exec_()
         else:
             msg = QMessageBox()
@@ -66,7 +66,7 @@ class Ui_Main(object):
             fh.setDate(5)
             msg = QMessageBox()
             msg.setWindowTitle("Mål valt")
-            msg.setText("Du har valt Medel-svårt mål\n20p under 5 dagar")
+            msg.setText("Du har valt Svårt mål\n20p under 5 dagar")
             x = msg.exec_()
         else:
             msg = QMessageBox()

@@ -32,6 +32,9 @@ class file_handling:
         f.write("\n" + str(endDate))
         f.close()
 
+    def updateDate(self):
+        return None
+
     def getRemainingPoints(self):
         f = open("points.txt", "r")
         return f.readline()
