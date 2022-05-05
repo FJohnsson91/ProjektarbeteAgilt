@@ -9,9 +9,16 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from file_handling import file_handling
 
 class Ui_popup(object):
+    
+    def toggle_window(self, window):
+        if window.isVisible():
+            window.hide()
+        else:
+            window.show()
+    
     def setupUi(self, popup):
         popup.setObjectName("popup")
         popup.resize(285, 165)
@@ -24,6 +31,7 @@ class Ui_popup(object):
 "\n"
 "")
         self.infobutton = QtWidgets.QPushButton(popup)
+        self.infobutton.clicked.connect(lambda: self.toggle_window(popup))
         self.infobutton.setGeometry(QtCore.QRect(210, 120, 61, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -52,4 +60,6 @@ class Ui_popup(object):
         _translate = QtCore.QCoreApplication.translate
         popup.setWindowTitle(_translate("popup", "Health-Goal"))
         self.infobutton.setText(_translate("popup", "OK"))
-        self.label_3.setText(_translate("popup", "Du har X poäng med X dagar kvar"))
+        fh = file_handling()
+        remainingPoints = fh.getRemainingPoints()
+        self.label_3.setText(_translate("popup", "Du har" + remainingPoints + " poäng med X dagar kvar"))
