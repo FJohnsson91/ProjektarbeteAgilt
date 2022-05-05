@@ -63,5 +63,6 @@ class Ui_popup(object):
         self.infobutton.setText(_translate("popup", "OK"))
         fh = file_handling()
         remainingPoints = fh.getRemainingPoints()
+        remainingDays = fh.getRemainingDays()
         self.label_3.setText(_translate(
-            "popup", "Du har " + remainingPoints + " poäng kvar med X dagar kvar"))
+            "popup", "Du har " + remainingPoints + " poäng kvar med " + remainingDays + " dagar kvar"))

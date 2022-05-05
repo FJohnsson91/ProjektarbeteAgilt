@@ -19,12 +19,6 @@ class file_handling:
         f.close()
 
     def setDate(self, daysToComplete):
-        #startDate = str(date.today())
-        #startDate = startDate[startDate.rindex('-') + 2]
-        #endDate = str(date.today())
-        #endDate = endDate[endDate.rindex('-') + 2]
-        #endDate = int(endDate) + daysToComplete
-
         currentDate = str(date.today())
         temp = currentDate[currentDate.rindex('-') + 1]
         if str(temp) == "0":
@@ -68,6 +62,14 @@ class file_handling:
                     "You have reached the end of the goal \n You can set up a new goal from the previous page")
                 x = msg.exec_()
                 self.emptyFile()
+
+    def getRemainingDays(self):
+        f = open("points.txt", "r")
+        lines = f.readlines()
+        currentDate = lines[1]
+        endDate = lines[2]
+        remainingDays = int(endDate) - int((currentDate))
+        return str(remainingDays)
 
     def getRemainingPoints(self):
         f = open("points.txt", "r")
