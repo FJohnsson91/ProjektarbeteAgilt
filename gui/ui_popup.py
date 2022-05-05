@@ -11,14 +11,15 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from file_handling import file_handling
 
+
 class Ui_popup(object):
-    
+
     def toggle_window(self, window):
         if window.isVisible():
             window.hide()
         else:
             window.show()
-    
+
     def setupUi(self, popup):
         popup.setObjectName("popup")
         popup.resize(285, 165)
@@ -27,9 +28,9 @@ class Ui_popup(object):
         popup.setFont(font)
         popup.setAutoFillBackground(False)
         popup.setStyleSheet("background-color: rgb(37, 37, 37);\n"
-"background-color: rgb(37,37,37);\n"
-"\n"
-"")
+                            "background-color: rgb(37,37,37);\n"
+                            "\n"
+                            "")
         self.infobutton = QtWidgets.QPushButton(popup)
         self.infobutton.clicked.connect(lambda: self.toggle_window(popup))
         self.infobutton.setGeometry(QtCore.QRect(210, 120, 61, 31))
@@ -48,9 +49,9 @@ class Ui_popup(object):
         font.setWeight(50)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("font-size: 12px;\n"
-"font: 10pt \"Segoe UI\";\n"
-"color: rgb(255, 222, 222);\n"
-"color: rgb(0, 170, 255);")
+                                   "font: 10pt \"Segoe UI\";\n"
+                                   "color: rgb(255, 222, 222);\n"
+                                   "color: rgb(0, 170, 255);")
         self.label_3.setObjectName("label_3")
 
         self.retranslateUi(popup)
@@ -62,4 +63,5 @@ class Ui_popup(object):
         self.infobutton.setText(_translate("popup", "OK"))
         fh = file_handling()
         remainingPoints = fh.getRemainingPoints()
-        self.label_3.setText(_translate("popup", "Du har" + remainingPoints + " poäng med X dagar kvar"))
+        self.label_3.setText(_translate(
+            "popup", "Du har " + remainingPoints + " poäng kvar med X dagar kvar"))

@@ -23,7 +23,7 @@ class Ui_Main(object):
         self.ui = Ui_popup()
         self.ui.setupUi(self.window)
         self.window.show()
-        
+
     def open_helpwindow(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_HelpText()
@@ -41,7 +41,10 @@ class Ui_Main(object):
         if fh.isFileEmpty():
             fh.setPointsGoal(15)
         else:
-            print("Goal has already been set")
+            msg = QMessageBox()
+            msg.setWindowTitle("Set goal")
+            msg.setText("You have already set a goal")
+            x = msg.exec_()
 
     def hardGoal(self):
         fh = file_handling()

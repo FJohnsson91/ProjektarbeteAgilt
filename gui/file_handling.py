@@ -1,4 +1,6 @@
 import os
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
 
 
 class file_handling:
@@ -24,15 +26,23 @@ class file_handling:
             lines = f.readlines()
             points = int(self.getRemainingPoints())
             points = points - pointsToDeduct
-            lines  # ['This is the first line.\n', 'This is the second line.\n']
-
-            lines[0] = "" + str(points) + "\n"
-
-            # ["This is the line that's replaced.\n", 'This is the second line.\n']
             lines
 
+            lines[0] = "" + str(points) + "\n"
+            lines
         with open("points.txt", "w") as f:
             f.writelines(lines)
+        if points <= 0:
+            msg = QMessageBox()
+            msg.setWindowTitle("Goal reached")
+            msg.setText(
+                "You have reached your goal \n You can set up a new goal from the previous page")
+            x = msg.exec_()
+            self.emptyFile()
+
+    def emptyFile(self):
+        with open("points.txt", 'r+') as f:
+            f.truncate(0)
 
     def isFileEmpty(self):
         fileSize = os.path.getsize("points.txt")
