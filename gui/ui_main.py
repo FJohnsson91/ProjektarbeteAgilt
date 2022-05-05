@@ -48,6 +48,11 @@ class Ui_Main(object):
         fh = file_handling()
         if fh.isFileEmpty():
             fh.setPointsGoal(15)
+            fh.setDate(5)
+            msg = QMessageBox()
+            msg.setWindowTitle("Mål valt")
+            msg.setText("Du har valt Svårt mål\n15p under 5 dagar")
+            x = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setWindowTitle("Set goal")
@@ -58,6 +63,11 @@ class Ui_Main(object):
         fh = file_handling()
         if fh.isFileEmpty():
             fh.setPointsGoal(20)
+            fh.setDate(5)
+            msg = QMessageBox()
+            msg.setWindowTitle("Mål valt")
+            msg.setText("Du har valt Medel-svårt mål\n20p under 5 dagar")
+            x = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setWindowTitle("Set goal")
@@ -68,6 +78,11 @@ class Ui_Main(object):
         fh = file_handling()
         if fh.isFileEmpty():
             fh.setPointsGoal(10)
+            fh.setDate(7)
+            msg = QMessageBox()
+            msg.setWindowTitle("Mål valt")
+            msg.setText("Du har valt Lätt mål\n10p under 7 dagar")
+            x = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setWindowTitle("Set goal")

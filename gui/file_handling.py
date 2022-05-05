@@ -1,10 +1,14 @@
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
+from datetime import date
 
 
 class file_handling:
     def __init__(self):
+        return None
+
+    def main():
         return None
 
     def setPointsGoal(self, goal):
@@ -13,7 +17,20 @@ class file_handling:
         f = open("points.txt", "w")
         f.write(str(goal))
         f.close()
-        f = open("points.txt", "r")
+
+    def setDate(self, daysToComplete):
+        startDate = str(date.today())
+        startDate = startDate[startDate.rindex('-') + 2]
+        endDate = str(date.today())
+        endDate = endDate[endDate.rindex('-') + 2]
+        endDate = int(endDate) + daysToComplete
+
+        print(endDate)
+
+        f = open("points.txt", "a")
+        f.write("\n" + str(startDate))
+        f.write("\n" + str(endDate))
+        f.close()
 
     def getRemainingPoints(self):
         f = open("points.txt", "r")
@@ -50,6 +67,5 @@ class file_handling:
         else:
             return False
 
-
-if __name__ == '__main__':
-    main()
+    if __name__ == "__main__":
+        main()
