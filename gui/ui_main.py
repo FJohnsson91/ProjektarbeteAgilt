@@ -19,10 +19,18 @@ from file_handling import file_handling
 class Ui_Main(object):
 
     def show_remainingpoints(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_popup()
-        self.ui.setupUi(self.window)
-        self.window.show()
+        fh = file_handling()
+        if fh.isFileEmpty():
+            msg = QMessageBox()
+            msg.setWindowTitle("No goal set")
+            msg.setText(
+                "You need to set a goal before you can view you progress")
+            x = msg.exec_()
+        else:
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup()
+            self.ui.setupUi(self.window)
+            self.window.show()
 
     def open_helpwindow(self):
         self.window = QtWidgets.QMainWindow()
@@ -51,14 +59,20 @@ class Ui_Main(object):
         if fh.isFileEmpty():
             fh.setPointsGoal(20)
         else:
-            print("Goal has already been set")
+            msg = QMessageBox()
+            msg.setWindowTitle("Set goal")
+            msg.setText("You have already set a goal")
+            x = msg.exec_()
 
     def easyGoal(self):
         fh = file_handling()
         if fh.isFileEmpty():
             fh.setPointsGoal(10)
         else:
-            print("Goal has already been set")
+            msg = QMessageBox()
+            msg.setWindowTitle("Set goal")
+            msg.setText("You have already set a goal")
+            x = msg.exec_()
 
     def setupUi(self, Main):
         Main.setObjectName("Main")

@@ -14,7 +14,6 @@ class file_handling:
         f.write(str(goal))
         f.close()
         f = open("points.txt", "r")
-        print(f.read())
 
     def getRemainingPoints(self):
         f = open("points.txt", "r")
