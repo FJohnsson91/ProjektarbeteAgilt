@@ -17,11 +17,13 @@ from ui_popup import Ui_popup
 
 counter = 0
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_Main()
         self.ui.setupUi(self)
+
 
 class SplashScreen(QMainWindow):
     def __init__(self):
@@ -55,11 +57,13 @@ class SplashScreen(QMainWindow):
             self.close()
         counter += 1
 
+
 class Helptext_window(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_HelpText()
         self.ui.setupUi(self)
+
 
 class Popup_window(QMainWindow):
     def __init__(self):
@@ -67,11 +71,13 @@ class Popup_window(QMainWindow):
         self.ui = Ui_popup()
         self.ui.setupUi(self)
 
+
 class activity_window(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_Aktivitet()
         self.ui.setupUi(self)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

@@ -27,7 +27,8 @@ class Ui_Aktivitet(object):
                                   "background-color: rgb(37,37,37);")
         self.widget.setObjectName("widget")
         self.TillbakaAktivitet = QtWidgets.QPushButton(self.widget)
-        self.TillbakaAktivitet.clicked.connect(lambda: self.toggle_window(Aktivitet))
+        self.TillbakaAktivitet.clicked.connect(
+            lambda: self.toggle_window(Aktivitet))
         self.TillbakaAktivitet.setGeometry(QtCore.QRect(30, 650, 141, 61))
         self.TillbakaAktivitet.setStyleSheet(
             "background-color: rgb(0, 170, 255);")
@@ -43,6 +44,8 @@ class Ui_Aktivitet(object):
         self.SparaAktivitet.setStyleSheet(
             "background-color: rgb(0, 170, 255);")
         self.SparaAktivitet.setObjectName("SparaAktivitet")
+        # Save button
+        self.SparaAktivitet.clicked.connect(lambda: self.savePoints())
         self.label_3 = QtWidgets.QLabel(self.widget)
         self.label_3.setGeometry(QtCore.QRect(50, 180, 141, 31))
         palette = QtGui.QPalette()
@@ -360,13 +363,22 @@ class Ui_Aktivitet(object):
         self.visamental.setText(_translate("Aktivitet", "Mentala aktiviteter"))
         self.label_4.setText(_translate(
             "Aktivitet", "Välj vilken kategori av aktiviteter nedan"))
-    
+
     def toggle_window(self, window):
         if window.isVisible():
             window.hide()
 
         else:
             window.show()
+
+    def savePoints(self):
+        text = self.textEdit.toPlainText()
+        pointsToDeduct = 0
+        for line in text.splitlines():
+            pointsToDeduct = pointsToDeduct + int(line[line.rindex('| ') + 2])
+
+        fh = file_handling()
+        fh.deductPoints(pointsToDeduct)
 
     def displayPhysicalActivities(self):
         mydb = mysql.connector.connect(
@@ -445,4 +457,3 @@ class Ui_Aktivitet(object):
                         entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
 
         # ADD FUNCTIONALITY TO SAVE TO FILE
-

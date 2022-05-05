@@ -19,6 +19,21 @@ class file_handling:
         return f.readline()
         f.close()
 
+    def deductPoints(self, pointsToDeduct):
+        with open("points.txt") as f:
+            lines = f.readlines()
+            points = int(self.getRemainingPoints())
+            points = points - pointsToDeduct
+            lines  # ['This is the first line.\n', 'This is the second line.\n']
+
+            lines[0] = "" + str(points) + "\n"
+
+            # ["This is the line that's replaced.\n", 'This is the second line.\n']
+            lines
+
+        with open("points.txt", "w") as f:
+            f.writelines(lines)
+
     def isFileEmpty(self):
         fileSize = os.path.getsize("points.txt")
         if fileSize == 0:
