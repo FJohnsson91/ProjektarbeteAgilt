@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
+from ui_popup import Ui_popup
 from ui_helptext import Ui_HelpText
 from ui_aktivitet import Ui_Aktivitet
 from file_handling import file_handling
@@ -18,14 +19,11 @@ from file_handling import file_handling
 class Ui_Main(object):
 
     def show_remainingpoints(self):
-        remaining_points = QMessageBox()
-        remaining_points.setWindowTitle("Health-Goal")
-        fh = file_handling()
-        remainingPoints = fh.getRemainingPoints()
-        remaining_points.setText("Du har " + remainingPoints + "poäng kvar")
-
-        remaining_points.exec_()
-
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_popup()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        
     def open_helpwindow(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_HelpText()
