@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_HelpText(object):
-    
+
     def setupUi(self, HelpText):
         HelpText.setObjectName("HelpText")
         HelpText.resize(1079, 816)
@@ -41,6 +41,7 @@ class Ui_HelpText(object):
         self.textBrowser.setGeometry(QtCore.QRect(0, 10, 1061, 651))
         self.textBrowser.setObjectName("textBrowser")
         self.textBrowser.setOpenExternalLinks(True)
+        self.textBrowser.setStyleSheet("border:0")
         self.verticalLayout.addWidget(self.frame)
         HelpText.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(HelpText)
@@ -53,12 +54,9 @@ class Ui_HelpText(object):
         _translate = QtCore.QCoreApplication.translate
         HelpText.setWindowTitle(_translate("HelpText", "Health-Goal"))
         self.BackFromHelp.setText(_translate("HelpText", "Tillbaka"))
-        self.textBrowser.setHtml(_translate("HelpText", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#00aaff;\">Davids fina text här.</span></p></body></html>"))
-        self.textBrowser.append('<a href=http://google.com>Google</a>')
+        self.textBrowser.setSource(
+            QtCore.QUrl.fromLocalFile("html.html"))
+
     def toggle_window(self, window):
         if window.isVisible():
             window.hide()

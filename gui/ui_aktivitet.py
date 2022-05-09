@@ -126,7 +126,7 @@ class Ui_Aktivitet(object):
                                    "color: rgb(0, 170, 255)")
         self.label_3.setObjectName("label_3")
         self.label = QtWidgets.QLabel(Aktivitet)
-        self.label.setGeometry(QtCore.QRect(350, 10, 481, 61))
+        self.label.setGeometry(QtCore.QRect(380, 10, 481, 61))
         self.label.setStyleSheet("font-size: 30px;\n"
                                  "font: bold;\n"
                                  "color: rgb(255, 222, 222);\n"
@@ -328,7 +328,7 @@ class Ui_Aktivitet(object):
         # Display mental activities
         self.visamental.clicked.connect(lambda: self.displayMentalActivities())
         self.label_4 = QtWidgets.QLabel(Aktivitet)
-        self.label_4.setGeometry(QtCore.QRect(440, 100, 271, 31))
+        self.label_4.setGeometry(QtCore.QRect(470, 100, 271, 31))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(1)
@@ -344,25 +344,25 @@ class Ui_Aktivitet(object):
     def retranslateUi(self, Aktivitet):
         _translate = QtCore.QCoreApplication.translate
         Aktivitet.setWindowTitle(_translate("Aktivitet", "Health-Goal"))
-        self.TillbakaAktivitet.setText(_translate("Aktivitet", "Tillbaka"))
-        self.SparaAktivitet.setText(_translate("Aktivitet", "Spara"))
-        self.label_3.setText(_translate("Aktivitet", "Valda aktiviteter"))
-        self.label_3.setText(_translate("Aktivitet", "Avklarade aktiviteter"))
+        self.TillbakaAktivitet.setText(_translate("Aktivitet", "Return"))
+        self.SparaAktivitet.setText(_translate("Aktivitet", "Save"))
+        self.label_3.setText(_translate("Aktivitet", "Chosen activities"))
+        self.label_3.setText(_translate("Aktivitet", "Completed activities"))
         self.label.setText(_translate(
-            "Aktivitet", "Olika aktiviteter att välja bland"))
+            "Aktivitet", "Activities to choose from"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("Aktivitet", "Aktivitet"))
+        item.setText(_translate("Aktivitet", "Activity"))
         item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("Aktivitet", "Längd"))
+        item.setText(_translate("Aktivitet", "Length"))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("Aktivitet", "Poäng"))
+        item.setText(_translate("Aktivitet", "Points"))
         self.label_2.setText(_translate(
-            "Aktivitet", "Välj vilka aktiviteter du vill göra genom att skriva in det nummer som står framför vald aktivitet"))
-        self.SaveAktivitet.setText(_translate("Aktivitet", "Lägg till"))
-        self.visafysik.setText(_translate("Aktivitet", "Fysiska aktiviteter"))
-        self.visamental.setText(_translate("Aktivitet", "Mentala aktiviteter"))
+            "Aktivitet", "Choose an activities by entering it's corresponding number from the list"))
+        self.SaveAktivitet.setText(_translate("Aktivitet", "Add"))
+        self.visafysik.setText(_translate("Aktivitet", "Physical activities"))
+        self.visamental.setText(_translate("Aktivitet", "Mental activities"))
         self.label_4.setText(_translate(
-            "Aktivitet", "Välj vilken kategori av aktiviteter nedan"))
+            "Aktivitet", "Choose a category below"))
 
     def toggle_window(self, window):
         if window.isVisible():

@@ -65,4 +65,4 @@ class Ui_popup(object):
         remainingPoints = fh.getRemainingPoints()
         remainingDays = fh.getRemainingDays()
         self.label_3.setText(_translate(
-            "popup", "Du har " + remainingPoints + " poäng kvar med " + remainingDays + " dagar kvar"))
+            "popup", "You have " + remainingPoints + " points remaining with " + remainingDays + " days left"))

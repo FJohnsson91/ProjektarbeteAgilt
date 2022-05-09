@@ -90,13 +90,30 @@ class Ui_Main(object):
             msg.setText("Goal is already set")
             x = msg.exec_()
 
+    def setPersonalGoal(self):
+        fh = file_handling()
+        if fh.isFileEmpty():
+            daysInput = self.personaldays.text()
+            pointsInput = self.personalpoints.text()
+            if daysInput.isnumeric():
+                fh.setPointsGoal(int(pointsInput))
+                fh.setDate(int(daysInput))
+
+            else:
+                print("Not a number")
+        else:
+            msg = QMessageBox()
+            msg.setWindowTitle("Set goal")
+            msg.setText("Goal is already set")
+            x = msg.exec_()
+
     def setupUi(self, Main):
         Main.setObjectName("Main")
         Main.resize(1086, 735)
         Main.setStyleSheet("background-color: rgb(37, 37, 37);\n"
                            "background-color: rgb(37,37,37);")
         self.widget = QtWidgets.QWidget(Main)
-        self.widget.setGeometry(QtCore.QRect(0, 0, 201, 731))
+        self.widget.setGeometry(QtCore.QRect(880, 0, 201, 731))
         self.widget.setStyleSheet("\n"
                                   "background-color: rgb(37,37,37);")
         self.widget.setObjectName("widget")
@@ -178,6 +195,7 @@ class Ui_Main(object):
         self.hardgoal.clicked.connect(lambda: self.hardGoal())
         self.label_4 = QtWidgets.QLabel(Main)
         self.label_4.setGeometry(QtCore.QRect(370, 220, 291, 31))
+
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(8)
@@ -218,8 +236,7 @@ class Ui_Main(object):
                                    "color: rgb(255, 222, 222);\n"
                                    "color: rgb(0, 170, 255);")
         self.label_6.setObjectName("label_6")
-        self.showpoints = QtWidgets.QTextEdit(Main)
-        self.showpoints.setGeometry(QtCore.QRect(890, 470, 71, 31))
+
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -269,29 +286,15 @@ class Ui_Main(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled,
                          QtGui.QPalette.PlaceholderText, brush)
-        self.showpoints.setPalette(palette)
-        self.showpoints.setStyleSheet("font: 12pt \"Segoe UI\";")
-        self.showpoints.setObjectName("showpoints")
-        self.label_7 = QtWidgets.QLabel(Main)
-        self.label_7.setGeometry(QtCore.QRect(770, 470, 100, 31))
+
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(1)
-        self.label_7.setFont(font)
-        self.label_7.setStyleSheet("font-size: 12px;\n"
-                                   "color: rgb(255, 222, 222);\n"
-                                   "color: rgb(0, 170, 255);")
-        self.label_7.setObjectName("label_7")
-        self.label_8 = QtWidgets.QLabel(Main)
-        self.label_8.setGeometry(QtCore.QRect(970, 470, 41, 31))
+
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(1)
-        self.label_8.setFont(font)
-        self.label_8.setStyleSheet("font-size: 12px;\n"
-                                   "color: rgb(255, 222, 222);\n"
-                                   "color: rgb(0, 170, 255);")
-        self.label_8.setObjectName("label_8")
+
         self.label_9 = QtWidgets.QLabel(Main)
         self.label_9.setGeometry(QtCore.QRect(220, 510, 301, 21))
         font = QtGui.QFont()
@@ -306,10 +309,7 @@ class Ui_Main(object):
                                    "color: rgb(255, 222, 222);\n"
                                    "color: rgb(0, 170, 255);")
         self.label_9.setObjectName("label_9")
-        self.savedays = QtWidgets.QPushButton(Main)
-        self.savedays.setGeometry(QtCore.QRect(360, 540, 131, 31))
-        self.savedays.setStyleSheet("background-color: rgb(0, 170, 255);")
-        self.savedays.setObjectName("savedays")
+
         self.personaldays = QtWidgets.QLineEdit(Main)
         self.personaldays.setGeometry(QtCore.QRect(220, 540, 141, 31))
         palette = QtGui.QPalette()
@@ -385,8 +385,7 @@ class Ui_Main(object):
         self.personaldays.setStyleSheet("font: 14pt \"Segoe UI\";\n"
                                         "background-color: rgb(37, 37, 37);")
         self.personaldays.setObjectName("personaldays")
-        self.showdays = QtWidgets.QTextEdit(Main)
-        self.showdays.setGeometry(QtCore.QRect(890, 520, 71, 31))
+
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(37, 37, 37))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -436,9 +435,7 @@ class Ui_Main(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled,
                          QtGui.QPalette.PlaceholderText, brush)
-        self.showdays.setPalette(palette)
-        self.showdays.setStyleSheet("font: 12pt \"Segoe UI\";")
-        self.showdays.setObjectName("showdays")
+
         self.label_10 = QtWidgets.QLabel(Main)
         self.label_10.setGeometry(QtCore.QRect(770, 520, 90, 31))
         font = QtGui.QFont()
@@ -449,16 +446,11 @@ class Ui_Main(object):
                                     "color: rgb(255, 222, 222);\n"
                                     "color: rgb(0, 170, 255);")
         self.label_10.setObjectName("label_10")
-        self.label_11 = QtWidgets.QLabel(Main)
-        self.label_11.setGeometry(QtCore.QRect(970, 520, 41, 31))
+
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(1)
-        self.label_11.setFont(font)
-        self.label_11.setStyleSheet("font-size: 12px;\n"
-                                    "color: rgb(255, 222, 222);\n"
-                                    "color: rgb(0, 170, 255);")
-        self.label_11.setObjectName("label_11")
+
         self.personalpoints = QtWidgets.QLineEdit(Main)
         self.personalpoints.setGeometry(QtCore.QRect(220, 470, 141, 31))
         palette = QtGui.QPalette()
@@ -535,9 +527,10 @@ class Ui_Main(object):
                                           "background-color: rgb(37, 37, 37);")
         self.personalpoints.setObjectName("personalpoints")
         self.saveactivity = QtWidgets.QPushButton(Main)
-        self.saveactivity.setGeometry(QtCore.QRect(360, 470, 131, 31))
+        self.saveactivity.setGeometry(QtCore.QRect(220, 590, 131, 31))
         self.saveactivity.setStyleSheet("background-color: rgb(0, 170, 255);")
         self.saveactivity.setObjectName("saveactivity")
+        self.saveactivity.clicked.connect(lambda: self.setPersonalGoal())
 
         self.retranslateUi(Main)
         QtCore.QMetaObject.connectSlotsByName(Main)
@@ -546,7 +539,7 @@ class Ui_Main(object):
         _translate = QtCore.QCoreApplication.translate
         Main.setWindowTitle(_translate("Main", "Health-Goal"))
         self.remainingpointsbutton.setText(
-            _translate("Main", "Vad har jag kvar?"))
+            _translate("Main", "Remaining points/days"))
 
         self.activitybutton.setText(_translate("Main", "Activities"))
         self.infobutton.setText(_translate("Main", "Information"))
@@ -565,11 +558,8 @@ class Ui_Main(object):
             "Main", "Earn 15 points over 5 days"))
         self.label_6.setText(_translate(
             "Main", "Earn 20 points over 5 days"))
-        self.label_7.setText(_translate(
-            "Main", "Points remaining: "))
+
         #self.label_8.setText(_translate("Main", "poäng"))
         self.label_9.setText(_translate("Main", "Personal goal | Days"))
-        self.savedays.setText(_translate("Main", "Add"))
-        self.label_10.setText(_translate("Main", "Days remaining:"))
-        #self.label_11.setText(_translate("Main", "dagar"))
+
         self.saveactivity.setText(_translate("Main", "Add"))
