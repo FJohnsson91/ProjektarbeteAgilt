@@ -14,6 +14,8 @@ from ui_popup import Ui_popup
 from ui_helptext import Ui_HelpText
 from ui_aktivitet import Ui_Aktivitet
 from file_handling import file_handling
+from ui_popup_selected_difficulty import Ui_popup_selected_difficulty
+from ui_popup_overwrite_difficulty import Ui_popup_overwrite_difficulty
 
 
 class Ui_Main(object):
@@ -49,46 +51,52 @@ class Ui_Main(object):
         if fh.isFileEmpty():
             fh.setPointsGoal(15)
             fh.setDate(5)
-            msg = QMessageBox()
-            msg.setWindowTitle("Target set")
-            msg.setText(
-                "You chose medium difficulty \n Collect 15p in 5 days")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_selected_difficulty(
+                "You chose medium difficulty\nCollect: 15 in 5 days")
+            self.ui.setupUi(self.window)
+            self.window.show()
         else:
-            msg = QMessageBox()
-            msg.setWindowTitle("Set goal")
-            msg.setText("Goal is already set")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_overwrite_difficulty(
+                "Overwrite your previous goal?\nYour progess will be lost", "medium")
+            self.ui.setupUi(self.window)
+            self.window.show()
 
     def hardGoal(self):
         fh = file_handling()
         if fh.isFileEmpty():
             fh.setPointsGoal(20)
             fh.setDate(5)
-            msg = QMessageBox()
-            msg.setWindowTitle("Mål valt")
-            msg.setText("You chose hard difficulty \n Collect 20p in 5 days")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_selected_difficulty(
+                "You chose hard difficulty\nCollect: 20 in 5 days")
+            self.ui.setupUi(self.window)
+            self.window.show()
         else:
-            msg = QMessageBox()
-            msg.setWindowTitle("Set goal")
-            msg.setText("Goal is already set")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_overwrite_difficulty(
+                "Overwrite your previous goal?\nYour progess will be lost", "hard")
+            self.ui.setupUi(self.window)
+            self.window.show()
 
     def easyGoal(self):
         fh = file_handling()
         if fh.isFileEmpty():
             fh.setPointsGoal(10)
             fh.setDate(7)
-            msg = QMessageBox()
-            msg.setWindowTitle("Mål valt")
-            msg.setText("You chose hard difficulty \n Collect 10p in 7 days")
-            x = msg.exec_()
+
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_selected_difficulty(
+                "You chose easy difficulty\nCollect: 10 in 7 days")
+            self.ui.setupUi(self.window)
+            self.window.show()
         else:
-            msg = QMessageBox()
-            msg.setWindowTitle("Set goal")
-            msg.setText("Goal is already set")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_overwrite_difficulty(
+                "Overwrite your previous goal?\nYour progess will be lost", "easy")
+            self.ui.setupUi(self.window)
+            self.window.show()
 
     def setPersonalGoal(self):
         fh = file_handling()
@@ -102,10 +110,11 @@ class Ui_Main(object):
             else:
                 print("Not a number")
         else:
-            msg = QMessageBox()
-            msg.setWindowTitle("Set goal")
-            msg.setText("Goal is already set")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_selected_difficulty(
+                "Goal is already set")
+            self.ui.setupUi(self.window)
+            self.window.show()
 
     def setupUi(self, Main):
         Main.setObjectName("Main")
