@@ -22,9 +22,9 @@ class Ui_Main(object):
         fh = file_handling()
         if fh.isFileEmpty():
             msg = QMessageBox()
-            msg.setWindowTitle("No goal set")
+            msg.setWindowTitle("Set a goal")
             msg.setText(
-                "You need to set a goal before you can view you progress")
+                "Please set a goal before viewing your progress")
             x = msg.exec_()
         else:
             self.window = QtWidgets.QMainWindow()
@@ -50,13 +50,14 @@ class Ui_Main(object):
             fh.setPointsGoal(15)
             fh.setDate(5)
             msg = QMessageBox()
-            msg.setWindowTitle("Mål valt")
-            msg.setText("Du har valt Medel-svårt mål\n15p under 5 dagar")
+            msg.setWindowTitle("Target set")
+            msg.setText(
+                "You chose medium difficulty \n Collect 15p in 5 days")
             x = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setWindowTitle("Set goal")
-            msg.setText("You have already set a goal")
+            msg.setText("Goal is already set")
             x = msg.exec_()
 
     def hardGoal(self):
@@ -66,12 +67,12 @@ class Ui_Main(object):
             fh.setDate(5)
             msg = QMessageBox()
             msg.setWindowTitle("Mål valt")
-            msg.setText("Du har valt Svårt mål\n20p under 5 dagar")
+            msg.setText("You chose hard difficulty \n Collect 20p in 5 days")
             x = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setWindowTitle("Set goal")
-            msg.setText("You have already set a goal")
+            msg.setText("Goal is already set")
             x = msg.exec_()
 
     def easyGoal(self):
@@ -81,12 +82,12 @@ class Ui_Main(object):
             fh.setDate(7)
             msg = QMessageBox()
             msg.setWindowTitle("Mål valt")
-            msg.setText("Du har valt Lätt mål\n10p under 7 dagar")
+            msg.setText("You chose hard difficulty \n Collect 10p in 7 days")
             x = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setWindowTitle("Set goal")
-            msg.setText("You have already set a goal")
+            msg.setText("Goal is already set")
             x = msg.exec_()
 
     def setupUi(self, Main):
@@ -117,7 +118,7 @@ class Ui_Main(object):
         self.infobutton.setObjectName("infobutton")
         self.infobutton.clicked.connect(self.open_helpwindow)
         self.label = QtWidgets.QLabel(Main)
-        self.label.setGeometry(QtCore.QRect(220, 30, 521, 91))
+        self.label.setGeometry(QtCore.QRect(220, 30, 701, 91))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(1)
@@ -547,28 +548,28 @@ class Ui_Main(object):
         self.remainingpointsbutton.setText(
             _translate("Main", "Vad har jag kvar?"))
 
-        self.activitybutton.setText(_translate("Main", "Aktiviteter"))
+        self.activitybutton.setText(_translate("Main", "Activities"))
         self.infobutton.setText(_translate("Main", "Information"))
         self.label.setText(_translate(
-            "Main", "Välj svårighetsgrad på ditt hälso-mål"))
+            "Main", "Select a difficulty for your Health-Goal"))
         self.label_2.setText(_translate(
-            "Main", "Antingen kan du välja ett lätt, medel, eller ett svårt mål för dig själv"))
+            "Main", "Choose between easy, medium, hard, or set your own goal"))
         self.label_3.setText(_translate(
-            "Main", "Eller en personlig målsättning, välj poäng här under"))
-        self.easygoal.setText(_translate("Main", "Lätt mål"))
-        self.mediumgoal.setText(_translate("Main", "Medel-svårt mål"))
-        self.hardgoal.setText(_translate("Main", "Svårt mål"))
+            "Main", "Personal goal | Points"))
+        self.easygoal.setText(_translate("Main", "Easy"))
+        self.mediumgoal.setText(_translate("Main", "Medium"))
+        self.hardgoal.setText(_translate("Main", "Hard"))
         self.label_4.setText(_translate(
-            "Main", "Med lätt mål ska du samla in XXX poäng under 7 dagar"))
+            "Main", "Earn 10 points over 7 days"))
         self.label_5.setText(_translate(
-            "Main", "Med medel-svårt mål ska du samla in XXX poäng under 5 dagar"))
+            "Main", "Earn 15 points over 5 days"))
         self.label_6.setText(_translate(
-            "Main", "Med svårt mål ska du samla in XXX poäng 5 dagar"))
+            "Main", "Earn 20 points over 5 days"))
         self.label_7.setText(_translate(
             "Main", "Points remaining: "))
         #self.label_8.setText(_translate("Main", "poäng"))
-        self.label_9.setText(_translate("Main", "Under hur många dagar "))
-        self.savedays.setText(_translate("Main", "Lägg till"))
+        self.label_9.setText(_translate("Main", "Personal goal | Days"))
+        self.savedays.setText(_translate("Main", "Add"))
         self.label_10.setText(_translate("Main", "Days remaining:"))
         #self.label_11.setText(_translate("Main", "dagar"))
-        self.saveactivity.setText(_translate("Main", "Lägg till"))
+        self.saveactivity.setText(_translate("Main", "Add"))
