@@ -53,7 +53,7 @@ class Ui_HelpText(object):
     def retranslateUi(self, HelpText):
         _translate = QtCore.QCoreApplication.translate
         HelpText.setWindowTitle(_translate("HelpText", "Health-Goal"))
-        self.BackFromHelp.setText(_translate("HelpText", "Tillbaka"))
+        self.BackFromHelp.setText(_translate("HelpText", "Return"))
         self.textBrowser.setSource(
             QtCore.QUrl.fromLocalFile("html.html"))
 
