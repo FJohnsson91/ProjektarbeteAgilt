@@ -97,3 +97,5 @@ if __name__ == '__main__':
 
     except AssertionError:
         print("ONE OR MORE TESTS FAILED!")
+    
+    unittest.main()
