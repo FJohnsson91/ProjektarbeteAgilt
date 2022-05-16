@@ -24,6 +24,7 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_Main()
         self.ui.setupUi(self)
+        self.ui.label.setScaledContents(True)
 
 
 class SplashScreen(QMainWindow):

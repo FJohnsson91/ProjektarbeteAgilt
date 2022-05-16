@@ -17,6 +17,7 @@ from file_handling import file_handling
 class Ui_Aktivitet(object):
 
     def setupUi(self, Aktivitet):
+        Aktivitet.setFixedSize(1086, 735)
         Aktivitet.setObjectName("Aktivitet")
         Aktivitet.resize(1109, 730)
         Aktivitet.setStyleSheet("background-color: rgb(37, 37, 37);\n"

@@ -1,6 +1,5 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from file_handling import file_handling
 
 
 class Ui_popup_selected_difficulty(object):

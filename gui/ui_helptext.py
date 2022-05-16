@@ -14,6 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_HelpText(object):
 
     def setupUi(self, HelpText):
+        HelpText.setFixedSize(1086, 735)
         HelpText.setObjectName("HelpText")
         HelpText.resize(1079, 816)
         self.centralwidget = QtWidgets.QWidget(HelpText)
@@ -29,7 +30,7 @@ class Ui_HelpText(object):
         self.frame.setObjectName("frame")
         self.BackFromHelp = QtWidgets.QPushButton(self.frame)
         self.BackFromHelp.clicked.connect(lambda: self.toggle_window(HelpText))
-        self.BackFromHelp.setGeometry(QtCore.QRect(20, 710, 111, 41))
+        self.BackFromHelp.setGeometry(QtCore.QRect(20, 660, 111, 41))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)

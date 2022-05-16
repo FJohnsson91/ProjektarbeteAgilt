@@ -23,11 +23,11 @@ class Ui_Main(object):
     def show_remainingpoints(self):
         fh = file_handling()
         if fh.isFileEmpty():
-            msg = QMessageBox()
-            msg.setWindowTitle("Set a goal")
-            msg.setText(
-                "Please set a goal before viewing your progress")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_selected_difficulty(
+                "You need to set a goal before you \ncan view your progress")
+            self.ui.setupUi(self.window)
+            self.window.show()
         else:
             self.window = QtWidgets.QMainWindow()
             self.ui = Ui_popup()
@@ -117,6 +117,7 @@ class Ui_Main(object):
             self.window.show()
 
     def setupUi(self, Main):
+        Main.setFixedSize(1086, 735)
         Main.setObjectName("Main")
         Main.resize(1086, 735)
         Main.setStyleSheet("background-color: rgb(37, 37, 37);\n"

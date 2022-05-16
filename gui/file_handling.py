@@ -2,6 +2,7 @@ import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 from datetime import date
+from ui_popup_selected_difficulty import Ui_popup_selected_difficulty
 
 
 class file_handling:
@@ -55,12 +56,12 @@ class file_handling:
                 currentDate = temp1 + temp2
                 str(currentDate)
 
-            if currentDate == endDate:
-                msg = QMessageBox()
-                msg.setWindowTitle("Finish")
-                msg.setText(
-                    "You have reached the end of the goal \n You can set up a new goal from the previous page")
-                x = msg.exec_()
+            if currentDate >= endDate:
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_popup_selected_difficulty(
+                    "You have reached the\nend of your goal")
+                self.ui.setupUi(self.window)
+                self.window.show()
                 self.emptyFile()
 
     def getRemainingDays(self):
@@ -88,11 +89,16 @@ class file_handling:
         with open("points.txt", "w") as f:
             f.writelines(lines)
         if points <= 0:
-            msg = QMessageBox()
-            msg.setWindowTitle("Goal reached")
-            msg.setText(
-                "You have reached your goal \n You can set up a new goal from the main page")
-            x = msg.exec_()
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_popup_selected_difficulty(
+                "Goal complete! \nSet a new goal from previous page")
+            self.ui.setupUi(self.window)
+            self.window.show()
+            # msg = QMessageBox()
+            # msg.setWindowTitle("Goal reached")
+            # msg.setText(
+            #     "You have reached your goal \n You can set up a new goal from the main page")
+            # x = msg.exec_()
             self.emptyFile()
 
     def emptyFile(self):
