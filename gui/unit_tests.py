@@ -27,7 +27,7 @@ class file_handling_tests(unittest.TestCase):
         daysToComplete = 30       
         fh.setDate(daysToComplete)
 
-        with open("points.txt", "r") as f:
+        with open("points.txt", "r") as f: 
 
             ## Reading last two lines of the file
             actual = ''.join(f.readlines()[-2:])
@@ -142,7 +142,6 @@ if __name__ == '__main__':
     try:
         tester.test_setPointsGoal()
         tester.test_setDate()
-    # tester.test_test_updateDate()
         tester.test_getRemainingDays()
         tester.test_getRemainingPoints()
         tester.test_deductPoints()
