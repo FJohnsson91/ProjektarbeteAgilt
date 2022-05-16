@@ -100,9 +100,9 @@ class Ui_Main(object):
 
     def setPersonalGoal(self):
         fh = file_handling()
+        daysInput = self.personaldays.text()
+        pointsInput = self.personalpoints.text()
         if fh.isFileEmpty():
-            daysInput = self.personaldays.text()
-            pointsInput = self.personalpoints.text()
             if daysInput.isnumeric():
                 fh.setPointsGoal(int(pointsInput))
                 fh.setDate(int(daysInput))
@@ -111,8 +111,8 @@ class Ui_Main(object):
                 print("Not a number")
         else:
             self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_popup_selected_difficulty(
-                "Goal is already set")
+            self.ui = Ui_popup_overwrite_difficulty(
+                "Overwrite your previous goal?\nYour progess will be lost", "personal", int(pointsInput), int(daysInput))
             self.ui.setupUi(self.window)
             self.window.show()
 

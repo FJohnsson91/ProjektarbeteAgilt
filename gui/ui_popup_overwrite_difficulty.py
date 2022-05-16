@@ -5,9 +5,11 @@ from file_handling import file_handling
 
 class Ui_popup_overwrite_difficulty(object):
 
-    def __init__(self, text, btn):
+    def __init__(self, text, btn="", points=0, days=0):
         self.text = text
         self.btn = btn
+        self.points = points
+        self.days = days
 
     def toggle_window(self, window):
         if window.isVisible():
@@ -29,6 +31,10 @@ class Ui_popup_overwrite_difficulty(object):
             fh.emptyFile()
             fh.setPointsGoal(20)
             fh.setDate(5)
+        if self.btn == "personal":
+            fh.emptyFile()
+            fh.setPointsGoal(self.points)
+            fh.setDate(self.days)
 
     def setupUi(self, popup):
         popup.setObjectName("popup")
