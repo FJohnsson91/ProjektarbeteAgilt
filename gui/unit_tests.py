@@ -10,6 +10,7 @@ fh = file_handling.file_handling()
 
 class file_handling_tests(unittest.TestCase):
 
+    "This method is a test case for setting points to your goal."
     def test_setPointsGoal(self):
 
         goal = 10 
@@ -21,7 +22,7 @@ class file_handling_tests(unittest.TestCase):
              
         self.assertEqual(actual, expected)
 
-
+    "This method is a test case for testing the date."
     def test_setDate(self):
 
         daysToComplete = 30       
@@ -42,26 +43,15 @@ class file_handling_tests(unittest.TestCase):
             else:
                 currentDate = pop[pop.rindex('-') + 1] + pop[pop.rindex('-') + 2]
 
-
             expected = f'{currentDate}\n{int(currentDate) + daysToComplete}'
 
-        
         self.assertEqual(actual, expected)  
-
-    # def test_updateDate(self):
-        
-        # fh.updateDate()
-        # with open("points.txt", "r") as f:
-        #     contents = f.read()
-
-        # self.assertEqual(contents, + '')
-        # pass
-
-
+   
+    "This method tests if how many days you have left."
     def test_getRemainingDays(self): 
 
-        with open('points.txt', 'r') as f:
-            current_date = int(f.readlines()[1])
+        with open('points.txt', 'r') as f:              #opens a text file
+            current_date = int(f.readlines()[1])    
             f.seek(0)
             end_date = int(f.readlines()[2])
         
@@ -70,7 +60,7 @@ class file_handling_tests(unittest.TestCase):
 
         self.assertEqual(actual, expected)
 
-
+    "this method tests how many points you have left."
     def test_getRemainingPoints(self): 
 
         with open('points.txt', 'r') as f:
@@ -82,7 +72,7 @@ class file_handling_tests(unittest.TestCase):
 
         self.assertCountEqual(actual_points, expected_points)
 
-
+    "This method is used when points to deduct the current_points."
     def test_deductPoints(self):
         
         ## Test for When points_to_deduct < current_points
@@ -95,20 +85,7 @@ class file_handling_tests(unittest.TestCase):
             acutal = f.readline()
         
         self.assertCountEqual(acutal, expected)
-
-        ## Test for When points_to_deduct >= current_points
-        # current_points   = int(fh.getRemainingPoints())
-        # points_to_deduct = 10
-
-        # fh.deductPoints(points_to_deduct)
-
-        # expected = 0
-        # actual   = os.stat('points.txt').st_size
-
-        # self.assertEqual(actual, expected)
-
-
-
+    
     def test_emptyFile(self):
         
         fh.emptyFile()
@@ -116,7 +93,7 @@ class file_handling_tests(unittest.TestCase):
         expected_size = 0 
         self.assertEqual(actual_size, expected_size)
 
-
+    "This method is used to check if the file is empty or not."
     def test_isFileEmpty(self):
         
         ##Test for when file is empty
