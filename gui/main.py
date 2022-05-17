@@ -14,6 +14,7 @@ from ui_splash import Ui_SplashScreen
 from ui_aktivitet import Ui_Aktivitet
 from ui_helptext import Ui_HelpText
 from ui_popup import Ui_popup
+from file_handling import file_handling
 
 counter = 0
 
@@ -82,4 +83,6 @@ class activity_window(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     splashwindow = SplashScreen()
+    fh = file_handling()
+    fh.updateDate()
     sys.exit(app.exec_())

@@ -379,6 +379,7 @@ class Ui_Aktivitet(object):
 
         fh = file_handling()
         fh.deductPoints(pointsToDeduct)
+        self.textEdit.clear()
 
     def displayPhysicalActivities(self):
         mydb = mysql.connector.connect(

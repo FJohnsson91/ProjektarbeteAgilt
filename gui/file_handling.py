@@ -19,21 +19,55 @@ class file_handling:
         f.close()
 
     def setDate(self, daysToComplete):
-        startDate = str(date.today())
-        startDate = startDate[startDate.rindex('-') + 2]
-        endDate = str(date.today())
-        endDate = endDate[endDate.rindex('-') + 2]
-        endDate = int(endDate) + daysToComplete
+        #startDate = str(date.today())
+        #startDate = startDate[startDate.rindex('-') + 2]
+        #endDate = str(date.today())
+        #endDate = endDate[endDate.rindex('-') + 2]
+        #endDate = int(endDate) + daysToComplete
 
-        print(endDate)
+        currentDate = str(date.today())
+        temp = currentDate[currentDate.rindex('-') + 1]
+        if str(temp) == "0":
+            currentDate = currentDate[currentDate.rindex('-') + 2]
+            endDate = int(currentDate) + daysToComplete
+        else:
+            temp1 = currentDate[currentDate.rindex('-') + 1]
+            temp2 = currentDate[currentDate.rindex('-') + 2]
+            currentDate = temp1 + temp2
+            str(currentDate)
+            endDate = int(currentDate) + daysToComplete
 
         f = open("points.txt", "a")
-        f.write("\n" + str(startDate))
+        f.write("\n" + str(currentDate))
         f.write("\n" + str(endDate))
         f.close()
 
     def updateDate(self):
-        return None
+        if self.isFileEmpty():
+            return None
+        else:
+            f = open("points.txt", "r")
+            lines = f.readlines()
+            endDate = lines[2]
+            f.close()
+
+            currentDate = str(date.today())
+            temp = currentDate[currentDate.rindex('-') + 1]
+            if str(temp) == "0":
+                currentDate = currentDate[currentDate.rindex('-') + 2]
+            else:
+                temp1 = currentDate[currentDate.rindex('-') + 1]
+                temp2 = currentDate[currentDate.rindex('-') + 2]
+                currentDate = temp1 + temp2
+                str(currentDate)
+
+            if currentDate == endDate:
+                msg = QMessageBox()
+                msg.setWindowTitle("Finish")
+                msg.setText(
+                    "You have reached the end of the goal \n You can set up a new goal from the previous page")
+                x = msg.exec_()
+                self.emptyFile()
 
     def getRemainingPoints(self):
         f = open("points.txt", "r")
@@ -55,7 +89,7 @@ class file_handling:
             msg = QMessageBox()
             msg.setWindowTitle("Goal reached")
             msg.setText(
-                "You have reached your goal \n You can set up a new goal from the previous page")
+                "You have reached your goal \n You can set up a new goal from the main page")
             x = msg.exec_()
             self.emptyFile()
 
