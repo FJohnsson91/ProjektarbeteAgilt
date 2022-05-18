@@ -78,7 +78,15 @@ codestyle: black
 # ---------------------------------------------------------
 # Work with unit test and code coverage.
 #
+unittest:
+	@$(call MESSAGE,$@)
+	 $(PYTHON) -m unittest discover
 
+coverage:
+	@$(call MESSAGE,$@)
+	coverage run -m unittest discover
+	coverage html
+	coverage report -m
 
 test: lint coverage
 

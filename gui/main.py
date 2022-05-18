@@ -11,9 +11,6 @@ from PyQt5.QtWidgets import *
 
 from ui_main import Ui_Main
 from ui_splash import Ui_SplashScreen
-from ui_aktivitet import Ui_Aktivitet
-from ui_helptext import Ui_HelpText
-from ui_popup import Ui_popup
 from file_handling import file_handling
 
 counter = 0
@@ -58,27 +55,6 @@ class SplashScreen(QMainWindow):
             self.main.show()
             self.close()
         counter += 1
-
-
-class Helptext_window(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
-        self.ui = Ui_HelpText()
-        self.ui.setupUi(self)
-
-
-class Popup_window(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
-        self.ui = Ui_popup()
-        self.ui.setupUi(self)
-
-
-class activity_window(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
-        self.ui = Ui_Aktivitet()
-        self.ui.setupUi(self)
 
 
 if __name__ == '__main__':

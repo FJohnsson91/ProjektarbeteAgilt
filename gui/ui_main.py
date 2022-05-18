@@ -14,7 +14,7 @@ from ui_popup import Ui_popup
 from ui_helptext import Ui_HelpText
 from ui_aktivitet import Ui_Aktivitet
 from file_handling import file_handling
-from ui_popup_selected_difficulty import Ui_popup_selected_difficulty
+from ui_popup_message import Ui_popup_message
 from ui_popup_overwrite_difficulty import Ui_popup_overwrite_difficulty
 
 
@@ -24,7 +24,7 @@ class Ui_Main(object):
         fh = file_handling()
         if fh.isFileEmpty():
             self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_popup_selected_difficulty(
+            self.ui = Ui_popup_message(
                 "You need to set a goal before you \ncan view your progress")
             self.ui.setupUi(self.window)
             self.window.show()
@@ -52,7 +52,7 @@ class Ui_Main(object):
             fh.setPointsGoal(15)
             fh.setDate(5)
             self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_popup_selected_difficulty(
+            self.ui = Ui_popup_message(
                 "You chose medium difficulty\nCollect: 15 in 5 days")
             self.ui.setupUi(self.window)
             self.window.show()
@@ -69,7 +69,7 @@ class Ui_Main(object):
             fh.setPointsGoal(20)
             fh.setDate(5)
             self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_popup_selected_difficulty(
+            self.ui = Ui_popup_message(
                 "You chose hard difficulty\nCollect: 20 in 5 days")
             self.ui.setupUi(self.window)
             self.window.show()
@@ -87,7 +87,7 @@ class Ui_Main(object):
             fh.setDate(7)
 
             self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_popup_selected_difficulty(
+            self.ui = Ui_popup_message(
                 "You chose easy difficulty\nCollect: 10 in 7 days")
             self.ui.setupUi(self.window)
             self.window.show()
