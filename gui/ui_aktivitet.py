@@ -426,36 +426,38 @@ class Ui_Aktivitet(object):
 
     def addChoice(self):
         choiceNumber = self.lineEdit.text()
-        if self.physical is True:
-            # fysiska table
-            mydb = mysql.connector.connect(
-                host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
-            )
-            mycursor = mydb.cursor()
-            sql = "SELECT * FROM fysiska"
-            mycursor.execute(sql)
-            myResult = mycursor.fetchall()
+        if choiceNumber.isdigit():
 
-            # Finds the corresponding activty for choiceNumber and adds it to the list
-            for entry in myResult:
-                if int(entry[0]) == int(choiceNumber):
-                    self.textEdit.append(
-                        entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
+            if self.physical is True:
+                # fysiska table
+                mydb = mysql.connector.connect(
+                    host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+                )
+                mycursor = mydb.cursor()
+                sql = "SELECT * FROM fysiska"
+                mycursor.execute(sql)
+                myResult = mycursor.fetchall()
 
-        if self.mental is True:
-            # mentala table
-            mydb = mysql.connector.connect(
-                host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
-            )
-            mycursor = mydb.cursor()
-            sql = "SELECT * FROM mentala"
-            mycursor.execute(sql)
-            myResult = mycursor.fetchall()
+                # Finds the corresponding activty for choiceNumber and adds it to the list
+                for entry in myResult:
+                    if int(entry[0]) == int(choiceNumber):
+                        self.textEdit.append(
+                            entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
 
-            # Finds the corresponding activty for choiceNumber and adds it to the list
-            for entry in myResult:
-                if int(entry[0]) == int(choiceNumber):
-                    self.textEdit.append(
-                        entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
+            if self.mental is True:
+                # mentala table
+                mydb = mysql.connector.connect(
+                    host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+                )
+                mycursor = mydb.cursor()
+                sql = "SELECT * FROM mentala"
+                mycursor.execute(sql)
+                myResult = mycursor.fetchall()
 
-        # ADD FUNCTIONALITY TO SAVE TO FILE
+                # Finds the corresponding activty for choiceNumber and adds it to the list
+                for entry in myResult:
+                    if int(entry[0]) == int(choiceNumber):
+                        self.textEdit.append(
+                            entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
+
+            # ADD FUNCTIONALITY TO SAVE TO FILE
