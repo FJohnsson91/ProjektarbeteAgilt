@@ -373,14 +373,18 @@ class Ui_Aktivitet(object):
             window.show()
 
     def savePoints(self):
-        text = self.textEdit.toPlainText()
-        pointsToDeduct = 0
-        for line in text.splitlines():
-            pointsToDeduct = pointsToDeduct + int(line[line.rindex('| ') + 2])
-
         fh = file_handling()
-        fh.deductPoints(pointsToDeduct)
-        self.textEdit.clear()
+        if fh.isFileEmpty():
+            return None
+        else:
+            text = self.textEdit.toPlainText()
+            pointsToDeduct = 0
+            for line in text.splitlines():
+                pointsToDeduct = pointsToDeduct + int(line[line.rindex('| ') + 2])
+
+            fh = file_handling()
+            fh.deductPoints(pointsToDeduct)
+            self.textEdit.clear()
 
     def displayPhysicalActivities(self):
         mydb = mysql.connector.connect(
@@ -426,38 +430,41 @@ class Ui_Aktivitet(object):
 
     def addChoice(self):
         choiceNumber = self.lineEdit.text()
+
         if choiceNumber.isdigit():
+            try:
+                if self.physical is True:
+                    # fysiska table
+                    mydb = mysql.connector.connect(
+                        host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+                    )
+                    mycursor = mydb.cursor()
+                    sql = "SELECT * FROM fysiska"
+                    mycursor.execute(sql)
+                    myResult = mycursor.fetchall()
 
-            if self.physical is True:
-                # fysiska table
-                mydb = mysql.connector.connect(
-                    host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
-                )
-                mycursor = mydb.cursor()
-                sql = "SELECT * FROM fysiska"
-                mycursor.execute(sql)
-                myResult = mycursor.fetchall()
+                    # Finds the corresponding activty for choiceNumber and adds it to the list
+                    for entry in myResult:
+                        if int(entry[0]) == int(choiceNumber):
+                            self.textEdit.append(
+                                entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
 
-                # Finds the corresponding activty for choiceNumber and adds it to the list
-                for entry in myResult:
-                    if int(entry[0]) == int(choiceNumber):
-                        self.textEdit.append(
-                            entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
+                if self.mental is True:
+                    # mentala table
+                    mydb = mysql.connector.connect(
+                        host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
+                    )
+                    mycursor = mydb.cursor()
+                    sql = "SELECT * FROM mentala"
+                    mycursor.execute(sql)
+                    myResult = mycursor.fetchall()
 
-            if self.mental is True:
-                # mentala table
-                mydb = mysql.connector.connect(
-                    host="emilone.eurovoice.net", user="healthgoaluser", password="zUd19HMoLtc61f7L", database="healthgoaldb"
-                )
-                mycursor = mydb.cursor()
-                sql = "SELECT * FROM mentala"
-                mycursor.execute(sql)
-                myResult = mycursor.fetchall()
+                    # Finds the corresponding activty for choiceNumber and adds it to the list
+                    for entry in myResult:
+                        if int(entry[0]) == int(choiceNumber):
+                            self.textEdit.append(
+                                entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
 
-                # Finds the corresponding activty for choiceNumber and adds it to the list
-                for entry in myResult:
-                    if int(entry[0]) == int(choiceNumber):
-                        self.textEdit.append(
-                            entry[1] + " | " + str(entry[2]) + " | " + str(entry[3]) + "P")
-
-            # ADD FUNCTIONALITY TO SAVE TO FILE
+                # ADD FUNCTIONALITY TO SAVE TO FILE
+            except:
+                return None
