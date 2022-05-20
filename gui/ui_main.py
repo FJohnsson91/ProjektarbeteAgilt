@@ -110,11 +110,14 @@ class Ui_Main(object):
             else:
                 print("Not a number")
         else:
-            self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_popup_overwrite_difficulty(
-                "Overwrite your previous goal?\nYour progess will be lost", "personal", int(pointsInput), int(daysInput))
-            self.ui.setupUi(self.window)
-            self.window.show()
+            if daysInput.isnumeric():
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_popup_overwrite_difficulty(
+                    "Overwrite your previous goal?\nYour progess will be lost", "personal", int(pointsInput), int(daysInput))
+                self.ui.setupUi(self.window)
+                self.window.show()
+            else:
+                return None
 
     def setupUi(self, Main):
         Main.setFixedSize(1086, 735)
