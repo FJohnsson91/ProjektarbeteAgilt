@@ -7,6 +7,8 @@ flake8-polyfill
 #metrics.pylint
 pylint
 radon
+mysql-connector-python
+PyQt5
 
 # Code style
 black
