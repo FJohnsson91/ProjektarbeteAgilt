@@ -380,7 +380,8 @@ class Ui_Aktivitet(object):
             text = self.textEdit.toPlainText()
             pointsToDeduct = 0
             for line in text.splitlines():
-                pointsToDeduct = pointsToDeduct + int(line[line.rindex('| ') + 2])
+                pointsToDeduct = pointsToDeduct + \
+                    int(line[line.rindex('| ') + 2])
 
             fh = file_handling()
             fh.deductPoints(pointsToDeduct)
